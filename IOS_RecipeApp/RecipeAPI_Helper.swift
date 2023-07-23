@@ -37,8 +37,8 @@ class RecipeAPI_Helper {
             for _ in 0..<count {
                 let data = try await fetch(urlString: baseURLString)
                 let decoder = JSONDecoder()
-                let recipeList = try decoder.decode(RecipeList.self, from: data)
-                recipes.append(contentsOf: recipeList.meals)
+                let recipeResponse = try decoder.decode(RecipeResponse.self, from: data)
+                recipes.append(contentsOf: recipeResponse.meals)
             }
             
             return recipes
@@ -46,4 +46,10 @@ class RecipeAPI_Helper {
             throw RecipeAPI_Errors.decodingError(error)
         }
     }
+
+}
+
+// New RecipeResponse struct to handle the response from the API
+struct RecipeResponse: Codable {
+    let meals: [Recipe]
 }

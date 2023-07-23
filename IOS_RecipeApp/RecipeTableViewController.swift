@@ -21,18 +21,23 @@ class RecipeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         Task {
-            do {
-                let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 200)
+                do {
+                    let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 20)
                     recipeList = randomRecipes
-                
-                
-                tableView.reloadData()
-                
-            } catch {
-
-                preconditionFailure("Program failed with error message \(error)")
+                    
+                    // Print some information to check the API response
+                    print("Number of recipes received: \(recipeList.count)")
+                    if let firstRecipe = recipeList.first {
+                        print("First recipe name: \(firstRecipe.strMeal)")
+                    } else {
+                        print("No recipe data received.")
+                    }
+                    
+                    tableView.reloadData()
+                } catch {
+                    preconditionFailure("Program failed with error message \(error)")
+                }
             }
-        }
     }
     
     // MARK: - Table view data source
@@ -48,15 +53,15 @@ class RecipeTableViewController: UITableViewController {
     }
     
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         
-         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
-     
-         cell.textLabel!.text = recipeList[indexPath.row].strMeal
-     
-         return cell
-     }
-     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
+        
+        cell.textLabel!.text = recipeList[indexPath.row].strMeal
+        
+        return cell
+    }
+    
     
     /*
      // Override to support conditional editing of the table view.
@@ -93,14 +98,22 @@ class RecipeTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In RecipeTableViewController.swift
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRecipeDetails",
+           let destinationVC = segue.destination as? RecipeDetailsViewController,
+           let selectedIndexPath = tableView.indexPathForSelectedRow {
+            
+            let selectedRecipe = recipeList[selectedIndexPath.row]
+            print("Selected recipe: \(selectedRecipe)")
+            destinationVC.recipe = selectedRecipe
+        }
+    }
+
+    
     
 }
