@@ -66,9 +66,6 @@ class RecipeDetailsViewController: UIViewController {
         instructionsLabel.text = recipe.strInstructions
     }
     
-    
-    
-    
     /*
      // MARK: - Navigation
      

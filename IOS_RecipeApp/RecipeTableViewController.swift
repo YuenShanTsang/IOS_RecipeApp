@@ -20,9 +20,10 @@ class RecipeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        
         Task {
             do {
-                let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 20)
+                let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 100)
                 recipeList = randomRecipes
                 
                 // Print some information to check the API response
@@ -38,6 +39,7 @@ class RecipeTableViewController: UITableViewController {
                 preconditionFailure("Program failed with error message \(error)")
             }
         }
+        
     }
     
     // MARK: - Table view data source
@@ -54,12 +56,65 @@ class RecipeTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
-        
-        cell.textLabel!.text = recipeList[indexPath.row].strMeal
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeTableViewCell
+
+        let recipe = recipeList[indexPath.row]
+        cell.mealLabel.text = recipe.strMeal
+        cell.categoryLabel.text = recipe.strCategory
+
+        if let imageURL = URL(string: recipe.strMealThumb) {
+            DispatchQueue.global().async {
+                if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {
+                    DispatchQueue.main.async {
+                        cell.recipeImage.image = image
+                    }
+                } else {
+                    // Set a placeholder image if the image is not available or there was an error loading it
+                    DispatchQueue.main.async {
+                        cell.recipeImage.image = UIImage(named: "placeholderImage")
+                    }
+                }
+            }
+        } else {
+            // Set a placeholder image if the image URL is not valid
+            cell.recipeImage.image = UIImage(named: "placeholderImage")
+        }
+
         return cell
+    }
+
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // Fetch the recipe for the cell at the given indexPath
+        let recipe = recipeList[indexPath.row]
+        
+        // Calculate the height required to display the content of the labels
+        let cellHeight = calculateCellHeight(for: recipe)
+        
+        // Return the calculated height
+        return cellHeight
+    }
+    
+    private func calculateCellHeight(for recipe: Recipe) -> CGFloat {
+        // Get the cell's contentView width to determine label width
+        let labelWidth = tableView.bounds.width - 16 // Adjust the value according to the cell's layout
+        
+        // Create NSAttributedString for the labels with the appropriate font
+        let mealLabelAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)] // Change the font size accordingly
+        let categoryLabelAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)] // Change the font size accordingly
+        
+        let mealLabelSize = NSString(string: recipe.strMeal).boundingRect(with: CGSize(width: labelWidth, height: .greatestFiniteMagnitude),options: .usesLineFragmentOrigin, attributes: mealLabelAttributes,context: nil)
+        let categoryLabelSize = NSString(string: recipe.strCategory).boundingRect(with: CGSize(width: labelWidth, height: .greatestFiniteMagnitude),options: .usesLineFragmentOrigin,attributes: categoryLabelAttributes,context: nil)
+        
+        // Calculate the height needed for each label
+        let mealLabelHeight = ceil(mealLabelSize.height)
+        let categoryLabelHeight = ceil(categoryLabelSize.height)
+        
+        // Add additional spacing between the labels
+        let spacing: CGFloat = 8
+        
+        // Return the total height of the cell, considering the heights of the labels and spacing
+        return mealLabelHeight + categoryLabelHeight + spacing
     }
     
     
