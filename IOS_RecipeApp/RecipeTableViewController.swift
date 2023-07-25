@@ -21,23 +21,23 @@ class RecipeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         Task {
-                do {
-                    let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 20)
-                    recipeList = randomRecipes
-                    
-                    // Print some information to check the API response
-                    print("Number of recipes received: \(recipeList.count)")
-                    if let firstRecipe = recipeList.first {
-                        print("First recipe name: \(firstRecipe.strMeal)")
-                    } else {
-                        print("No recipe data received.")
-                    }
-                    
-                    tableView.reloadData()
-                } catch {
-                    preconditionFailure("Program failed with error message \(error)")
+            do {
+                let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 20)
+                recipeList = randomRecipes
+                
+                // Print some information to check the API response
+                print("Number of recipes received: \(recipeList.count)")
+                if let firstRecipe = recipeList.first {
+                    print("First recipe name: \(firstRecipe.strMeal)")
+                } else {
+                    print("No recipe data received.")
                 }
+                
+                tableView.reloadData()
+            } catch {
+                preconditionFailure("Program failed with error message \(error)")
             }
+        }
     }
     
     // MARK: - Table view data source
@@ -113,7 +113,7 @@ class RecipeTableViewController: UITableViewController {
             destinationVC.recipe = selectedRecipe
         }
     }
-
+    
     
     
 }

@@ -46,7 +46,7 @@ class RecipeAPI_Helper {
             throw RecipeAPI_Errors.decodingError(error)
         }
     }
-
+    
 }
 
 // New RecipeResponse struct to handle the response from the API
