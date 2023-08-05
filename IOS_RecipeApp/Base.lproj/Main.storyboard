@@ -11,7 +11,7 @@
         <!--Create Recipe-->
         <scene sceneID="AKJ-CU-GwH">
             <objects>
-                <viewController id="xiS-WB-ROt" sceneMemberID="viewController">
+                <viewController id="xiS-WB-ROt" customClass="CreateRecipeViewController" customModule="IOS_RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22r-pC-2ia">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,6 +56,9 @@
                                 <rect key="frame" x="116.66666666666669" y="372" width="160" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system" title="Upload Photo"/>
+                                <connections>
+                                    <action selector="imagePicker:" destination="xiS-WB-ROt" eventType="touchUpInside" id="TC4-Dq-4fJ"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aZ-lf-JHd">
                                 <rect key="frame" x="16" y="441" width="361" height="34"/>
@@ -129,6 +132,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Recipe" id="shb-je-7uc"/>
+                    <connections>
+                        <outlet property="image" destination="TUh-h8-JGY" id="fu4-hD-Qz3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrm-sT-eKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

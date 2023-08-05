@@ -18,6 +18,7 @@
 		4BB7218A2A639DAC004FBAA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB721892A639DAC004FBAA8 /* Assets.xcassets */; };
 		4BB7218D2A639DAC004FBAA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB7218B2A639DAC004FBAA8 /* LaunchScreen.storyboard */; };
 		4BD06A2C2A6F839C00E80754 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD06A2B2A6F839C00E80754 /* RecipeTableViewCell.swift */; };
+		4BFE55372A7F0499002E5730 /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE55362A7F0499002E5730 /* CreateRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		4BB7218C2A639DAC004FBAA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BB7218E2A639DAC004FBAA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD06A2B2A6F839C00E80754 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		4BFE55362A7F0499002E5730 /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +70,9 @@
 			children = (
 				4BB7217D2A639DAB004FBAA8 /* AppDelegate.swift */,
 				4BB7217F2A639DAB004FBAA8 /* SceneDelegate.swift */,
-				4B94A6372A6CC583006D26B6 /* RecipeDetailsViewController.swift */,
 				4B94A6312A6C6414006D26B6 /* RecipeTableViewController.swift */,
+				4B94A6372A6CC583006D26B6 /* RecipeDetailsViewController.swift */,
+				4BFE55362A7F0499002E5730 /* CreateRecipeViewController.swift */,
 				4BD06A2B2A6F839C00E80754 /* RecipeTableViewCell.swift */,
 				4B94A6332A6C648B006D26B6 /* RecipeAPI_Helper.swift */,
 				4B94A6352A6C6B90006D26B6 /* RecipeList.swift */,
@@ -161,6 +164,7 @@
 				4B94A6342A6C648B006D26B6 /* RecipeAPI_Helper.swift in Sources */,
 				4BB721802A639DAB004FBAA8 /* SceneDelegate.swift in Sources */,
 				4BD06A2C2A6F839C00E80754 /* RecipeTableViewCell.swift in Sources */,
+				4BFE55372A7F0499002E5730 /* CreateRecipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +314,8 @@
 				DEVELOPMENT_TEAM = VTCQS58AV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IOS_RecipeApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "need access to photo library for avatar image";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "need access to photo library for avatar image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -338,6 +344,8 @@
 				DEVELOPMENT_TEAM = VTCQS58AV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IOS_RecipeApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "need access to photo library for avatar image";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "need access to photo library for avatar image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
