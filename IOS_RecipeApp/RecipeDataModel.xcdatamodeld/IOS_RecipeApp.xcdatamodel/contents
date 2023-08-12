@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F66" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="RecipeEntity" representedClassName="RecipeEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="userArea" optional="YES" attributeType="String"/>
+        <attribute name="userCategory" optional="YES" attributeType="String"/>
+        <attribute name="userIngredients" optional="YES" attributeType="String"/>
+        <attribute name="userInstructions" optional="YES" attributeType="String"/>
+        <attribute name="userMeal" optional="YES" attributeType="String"/>
+        <attribute name="userRecipeId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userRecipeImage" optional="YES" attributeType="Binary"/>
+    </entity>
+</model>
