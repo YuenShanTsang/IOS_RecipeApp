@@ -94,6 +94,9 @@
                                 <rect key="frame" x="157.66666666666666" y="793" width="78" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
+                                <connections>
+                                    <action selector="submitUserRecipe:" destination="xiS-WB-ROt" eventType="touchUpInside" id="cnW-VY-xef"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MUp-OS-0HF"/>
@@ -143,7 +146,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Recipe" id="shb-je-7uc"/>
                     <connections>
+                        <outlet property="areaTextField" destination="juc-ca-Xsg" id="6RD-2l-chW"/>
+                        <outlet property="categoryTextField" destination="ZSM-p3-QHk" id="QZM-Cm-kRK"/>
                         <outlet property="image" destination="TUh-h8-JGY" id="fu4-hD-Qz3"/>
+                        <outlet property="ingredientsTextField" destination="d3n-MG-rRs" id="trz-GK-U1i"/>
+                        <outlet property="instructionsTextView" destination="8kA-Qy-A5Y" id="8tv-SZ-afr"/>
+                        <outlet property="mealTextField" destination="2aZ-lf-JHd" id="q2L-iA-uae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrm-sT-eKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

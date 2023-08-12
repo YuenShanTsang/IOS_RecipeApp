@@ -34,8 +34,37 @@ class CreateRecipeViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     @IBAction func submitUserRecipe(_ sender: Any) {
-        
-        
+        // Get input values from text fields and text view
+            let meal = mealTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let category = categoryTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let area = areaTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let ingredients = ingredientsTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let instructions = instructionsTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            
+            // Check if required fields are empty
+            if meal.isEmpty || category.isEmpty || area.isEmpty || ingredients.isEmpty || instructions.isEmpty {
+                // Show an alert indicating that all fields are required
+                let alert = UIAlertController(title: "Missing Information", message: "Please fill in all fields.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            // Create a UserRecipe object
+            let newUserRecipe = UserRecipe(
+                userMeal: meal,
+                userCategory: category,
+                userArea: area,
+                userIngredients: ingredients,
+                userInstructions: instructions
+            )
+            
+            // Save the user recipe using RecipeDataHelper
+            let recipeDataHelper = RecipeDataHelper()
+            recipeDataHelper.saveUserRecipe(userRecipe: newUserRecipe)
+            
+            // Navigate back to the home page
+            navigationController?.popViewController(animated: true)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
