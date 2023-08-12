@@ -9,6 +9,11 @@ import UIKit
 
 class CreateRecipeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
+    @IBOutlet weak var mealTextField: UITextField!
+    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var areaTextField: UITextField!
+    @IBOutlet weak var ingredientsTextField: UITextField!
+    @IBOutlet weak var instructionsTextView: UITextView!
     @IBOutlet weak var image: UIImageView!
     
     @IBAction func imagePicker(_ sender: Any) {
@@ -27,6 +32,12 @@ class CreateRecipeViewController: UIViewController, UIImagePickerControllerDeleg
         present(imagePicker, animated: true, completion: nil)
     }
     
+    
+    @IBAction func submitUserRecipe(_ sender: Any) {
+        
+        
+    }
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("no image was selected so the library was dismissed")
         
