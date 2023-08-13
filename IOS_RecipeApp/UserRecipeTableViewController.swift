@@ -9,7 +9,9 @@ import UIKit
 
 class UserRecipeTableViewController: UITableViewController {
     
+    // Array to store user recipes
     var userRecipes: [UserRecipe] = []
+    // Helper instance to interact with Core Data
     var recipeDataHelper = RecipeDataHelper()
     
     override func viewDidLoad() {
@@ -20,12 +22,12 @@ class UserRecipeTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Fetch user recipes from Core Data and update the table view
         userRecipes = RecipeDataHelper().fetchUserRecipes()
         tableView.reloadData()
     }
@@ -43,6 +45,7 @@ class UserRecipeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Dequeue a reusable cell and configure it with user recipe data
         let cell = tableView.dequeueReusableCell(withIdentifier: "userRecipeCell", for: indexPath) as! UserRecipeTableViewCell
         
         // Configure the custom cell with user recipe data
@@ -62,8 +65,6 @@ class UserRecipeTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
-    
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -103,11 +104,9 @@ class UserRecipeTableViewController: UITableViewController {
         if segue.identifier == "showUserRecipeDetails",
            let destinationVC = segue.destination as? UserRecipeDetailsViewController,
            let selectedIndexPath = tableView.indexPathForSelectedRow {
-            
+            // Pass the selected user recipe to the details view controller
             let selectedRecipe = userRecipes[selectedIndexPath.row]
             destinationVC.selectedUserRecipe = selectedRecipe
         }
     }
-    
-    
 }
