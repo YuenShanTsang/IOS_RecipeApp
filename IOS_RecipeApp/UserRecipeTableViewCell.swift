@@ -13,7 +13,6 @@ class UserRecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var userMealLabel: UILabel!
     @IBOutlet weak var userCategoryLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +23,5 @@ class UserRecipeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

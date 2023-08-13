@@ -9,7 +9,10 @@ import UIKit
 
 class UserRecipeTableViewController: UITableViewController {
     
+    // Array to store user recipes
     var userRecipes: [UserRecipe] = []
+    // Helper instance to interact with Core Data
+    var recipeDataHelper = RecipeDataHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +22,12 @@ class UserRecipeTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Fetch user recipes from Core Data and update the table view
         userRecipes = RecipeDataHelper().fetchUserRecipes()
         tableView.reloadData()
     }
@@ -42,6 +45,7 @@ class UserRecipeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Dequeue a reusable cell and configure it with user recipe data
         let cell = tableView.dequeueReusableCell(withIdentifier: "userRecipeCell", for: indexPath) as! UserRecipeTableViewCell
         
         // Configure the custom cell with user recipe data
@@ -62,13 +66,13 @@ class UserRecipeTableViewController: UITableViewController {
         return true
     }
     
-    
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            userRecipes.remove(at: indexPath.row)
+            let deletedUserRecipe = userRecipes[indexPath.row]
+            RecipeDataHelper().deleteUserRecipe(userRecipe: deletedUserRecipe) // Delete from Core Data
+            userRecipes.remove(at: indexPath.row) // Delete from the array
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -90,14 +94,19 @@ class UserRecipeTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showUserRecipeDetails",
+           let destinationVC = segue.destination as? UserRecipeDetailsViewController,
+           let selectedIndexPath = tableView.indexPathForSelectedRow {
+            // Pass the selected user recipe to the details view controller
+            let selectedRecipe = userRecipes[selectedIndexPath.row]
+            destinationVC.selectedUserRecipe = selectedRecipe
+        }
+    }
 }

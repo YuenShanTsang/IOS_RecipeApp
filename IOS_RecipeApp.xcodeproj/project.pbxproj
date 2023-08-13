@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1C9D6A2A8974770027E8C0 /* UserRecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C9D692A8974770027E8C0 /* UserRecipeDetailsViewController.swift */; };
 		4B94A6322A6C6414006D26B6 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B94A6312A6C6414006D26B6 /* RecipeTableViewController.swift */; };
 		4B94A6342A6C648B006D26B6 /* RecipeAPI_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B94A6332A6C648B006D26B6 /* RecipeAPI_Helper.swift */; };
 		4B94A6362A6C6B90006D26B6 /* RecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B94A6352A6C6B90006D26B6 /* RecipeList.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B1C9D692A8974770027E8C0 /* UserRecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		4B94A6312A6C6414006D26B6 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
 		4B94A6332A6C648B006D26B6 /* RecipeAPI_Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAPI_Helper.swift; sourceTree = "<group>"; };
 		4B94A6352A6C6B90006D26B6 /* RecipeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeList.swift; sourceTree = "<group>"; };
@@ -77,13 +79,14 @@
 				4BB7217D2A639DAB004FBAA8 /* AppDelegate.swift */,
 				4BB7217F2A639DAB004FBAA8 /* SceneDelegate.swift */,
 				4B94A6312A6C6414006D26B6 /* RecipeTableViewController.swift */,
-				4BB015DF2A886FE600E64532 /* UserRecipeTableViewController.swift */,
-				4B94A6372A6CC583006D26B6 /* RecipeDetailsViewController.swift */,
-				4BFE55362A7F0499002E5730 /* CreateRecipeViewController.swift */,
-				4BB015E12A88725700E64532 /* UserRecipeTableViewCell.swift */,
 				4BD06A2B2A6F839C00E80754 /* RecipeTableViewCell.swift */,
-				4BB015DD2A884D7000E64532 /* RecipeDataHelper.swift */,
+				4B94A6372A6CC583006D26B6 /* RecipeDetailsViewController.swift */,
 				4B94A6332A6C648B006D26B6 /* RecipeAPI_Helper.swift */,
+				4BB015DF2A886FE600E64532 /* UserRecipeTableViewController.swift */,
+				4BB015E12A88725700E64532 /* UserRecipeTableViewCell.swift */,
+				4B1C9D692A8974770027E8C0 /* UserRecipeDetailsViewController.swift */,
+				4BFE55362A7F0499002E5730 /* CreateRecipeViewController.swift */,
+				4BB015DD2A884D7000E64532 /* RecipeDataHelper.swift */,
 				4B94A6352A6C6B90006D26B6 /* RecipeList.swift */,
 				4BB721832A639DAB004FBAA8 /* Main.storyboard */,
 				4BB721892A639DAC004FBAA8 /* Assets.xcassets */,
@@ -175,6 +178,7 @@
 				4BB721802A639DAB004FBAA8 /* SceneDelegate.swift in Sources */,
 				4BD06A2C2A6F839C00E80754 /* RecipeTableViewCell.swift in Sources */,
 				4BFE55372A7F0499002E5730 /* CreateRecipeViewController.swift in Sources */,
+				4B1C9D6A2A8974770027E8C0 /* UserRecipeDetailsViewController.swift in Sources */,
 				4BB015E22A88725700E64532 /* UserRecipeTableViewCell.swift in Sources */,
 				4BB015DE2A884D7000E64532 /* RecipeDataHelper.swift in Sources */,
 			);

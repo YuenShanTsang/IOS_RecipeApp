@@ -21,6 +21,7 @@ class RecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check if a recipe has been provided, then update the UI accordingly
         if let selectedRecipe = recipe {
             updateUI(with: selectedRecipe)
         } else {
@@ -28,11 +29,13 @@ class RecipeDetailsViewController: UIViewController {
         }
     }
     
+    // Update the UI elements with data from the provided recipe
     private func updateUI(with recipe: Recipe) {
         mealLabel.text = recipe.strMeal
         categoryLabel.text = "Category: " + recipe.strCategory
         areaLabel.text = "Area: " + recipe.strArea
         
+        // Load and display the recipe image from the provided URL
         if let imageURL = URL(string: recipe.strMealThumb) {
             DispatchQueue.global().async {
                 if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {

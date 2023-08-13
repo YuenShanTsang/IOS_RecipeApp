@@ -7,10 +7,12 @@
 
 import Foundation
 
+// Structure to represent a list of recipes obtained from the API
 struct RecipeList: Codable {
     let meals: [Recipe]
 }
 
+// Structure to represent a single recipe
 struct Recipe: Codable {
     let idMeal: String
     let strMeal: String
@@ -75,6 +77,7 @@ struct Recipe: Codable {
     }
 }
 
+// Structure to represent a user-created recipe
 struct UserRecipe {
     let userMeal: String
     let userCategory: String
