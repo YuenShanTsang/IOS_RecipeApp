@@ -52,13 +52,29 @@ class CreateRecipeViewController: UIViewController, UIImagePickerControllerDeleg
             return
         }
         
+        // Check if an image has been selected
+        guard let selectedImage = image.image else {
+            // Show an alert indicating that an image is required
+            let alert = UIAlertController(title: "Missing Image", message: "Please select an image for the recipe.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        // Convert the selected image to Data
+        guard let imageData = selectedImage.jpegData(compressionQuality: 0.8) else {
+            print("Failed to convert image to data")
+            return
+        }
+        
         // Create a UserRecipe object
         let newUserRecipe = UserRecipe(
             userMeal: meal,
             userCategory: category,
             userArea: area,
             userIngredients: ingredients,
-            userInstructions: instructions
+            userInstructions: instructions,
+            userRecipeImage: imageData
         )
         
         // Save the Core Data context
