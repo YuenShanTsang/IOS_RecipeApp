@@ -23,8 +23,8 @@ class UserRecipeDetailsViewController: UIViewController {
         
         if let recipe = selectedUserRecipe {
                mealLabel.text = recipe.userMeal
-               categoryLabel.text = recipe.userCategory
-               areaLabel.text = recipe.userArea
+               categoryLabel.text = "Category: " + recipe.userCategory
+               areaLabel.text = "Area: " + recipe.userArea
                ingredientLabel.text = recipe.userIngredients
                instructionsLabel.text = recipe.userInstructions
                

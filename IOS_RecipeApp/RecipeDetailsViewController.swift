@@ -28,6 +28,10 @@ class RecipeDetailsViewController: UIViewController {
         }
     }
     
+    
+    
+    
+    
     private func updateUI(with recipe: Recipe) {
         mealLabel.text = recipe.strMeal
         categoryLabel.text = "Category: " + recipe.strCategory

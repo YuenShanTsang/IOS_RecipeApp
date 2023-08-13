@@ -10,6 +10,7 @@ import UIKit
 class UserRecipeTableViewController: UITableViewController {
     
     var userRecipes: [UserRecipe] = []
+    var recipeDataHelper = RecipeDataHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +69,9 @@ class UserRecipeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            userRecipes.remove(at: indexPath.row)
+            let deletedUserRecipe = userRecipes[indexPath.row]
+            RecipeDataHelper().deleteUserRecipe(userRecipe: deletedUserRecipe) // Delete from Core Data
+            userRecipes.remove(at: indexPath.row) // Delete from the array
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -91,20 +94,20 @@ class UserRecipeTableViewController: UITableViewController {
      */
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-         if segue.identifier == "showUserRecipeDetails",
-            let destinationVC = segue.destination as? UserRecipeDetailsViewController,
-            let selectedIndexPath = tableView.indexPathForSelectedRow {
-             
-             let selectedRecipe = userRecipes[selectedIndexPath.row]
-             destinationVC.selectedUserRecipe = selectedRecipe
-         }
-     }
-     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showUserRecipeDetails",
+           let destinationVC = segue.destination as? UserRecipeDetailsViewController,
+           let selectedIndexPath = tableView.indexPathForSelectedRow {
+            
+            let selectedRecipe = userRecipes[selectedIndexPath.row]
+            destinationVC.selectedUserRecipe = selectedRecipe
+        }
+    }
+    
     
 }

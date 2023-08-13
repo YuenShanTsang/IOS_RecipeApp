@@ -20,10 +20,10 @@ class RecipeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        
+        // Fetch random recipes from the API
         Task {
             do {
-                let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 30)
+                let randomRecipes = try await RecipeAPI_Helper.fetchRandomRecipeList(count: 45)
                 recipeList = randomRecipes
                 
                 // Print some information to check the API response
@@ -34,12 +34,12 @@ class RecipeTableViewController: UITableViewController {
                     print("No recipe data received.")
                 }
                 
+                // Reload the table view with the fetched data
                 tableView.reloadData()
             } catch {
                 preconditionFailure("Program failed with error message \(error)")
             }
         }
-        
     }
     
     // MARK: - Table view data source
@@ -54,17 +54,22 @@ class RecipeTableViewController: UITableViewController {
         return recipeList.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeTableViewCell
         
+        // Get the corresponding recipe object from the recipeList array
         let recipe = recipeList[indexPath.row]
+        
+        // Configure the cell's labels with data from the recipe object
         cell.mealLabel.text = recipe.strMeal
         cell.categoryLabel.text = recipe.strCategory
         
+        // Load the recipe image asynchronously
         if let imageURL = URL(string: recipe.strMealThumb) {
             DispatchQueue.global().async {
+                // Try to fetch image data from the URL
                 if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {
+                    // Update the cell's image view on the main thread
                     DispatchQueue.main.async {
                         cell.recipeImage.image = image
                     }
@@ -160,16 +165,21 @@ class RecipeTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     // In RecipeTableViewController.swift
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Check if the triggered segue has the identifier "showRecipeDetails"
         if segue.identifier == "showRecipeDetails",
+           // Attempt to cast the destination view controller to RecipeDetailsViewController
            let destinationVC = segue.destination as? RecipeDetailsViewController,
+           // Get the selected row's index path
            let selectedIndexPath = tableView.indexPathForSelectedRow {
             
+            // Get the corresponding recipe object from the recipeList array using the selected index path
             let selectedRecipe = recipeList[selectedIndexPath.row]
+            
+            // Print a message to indicate the selected recipe for debugging purposes
             print("Selected recipe: \(selectedRecipe)")
+            
+            // Pass the selected recipe to the destination view controller's 'recipe' property
             destinationVC.recipe = selectedRecipe
         }
     }
-    
-    
-    
 }

@@ -71,4 +71,18 @@ class RecipeDataHelper {
         return userRecipes
     }
 
+    func deleteUserRecipe(userRecipe: UserRecipe) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = RecipeEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "userMeal == %@ AND userCategory == %@ AND userArea == %@ AND userIngredients == %@ AND userInstructions == %@", userRecipe.userMeal, userRecipe.userCategory, userRecipe.userArea, userRecipe.userIngredients, userRecipe.userInstructions)
+
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedObjectContext.execute(batchDeleteRequest)
+            try managedObjectContext.save()
+            print("User recipe deleted successfully!")
+        } catch {
+            print("Failed to delete user recipe: \(error)")
+        }
+    }
 }

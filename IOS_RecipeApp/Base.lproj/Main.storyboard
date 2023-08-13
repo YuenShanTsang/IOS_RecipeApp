@@ -445,7 +445,7 @@
             </objects>
             <point key="canvasLocation" x="-624" y="-309"/>
         </scene>
-        <!--Recipe Details-->
+        <!--My Recipe Details-->
         <scene sceneID="FWJ-4B-rwZ">
             <objects>
                 <viewController id="cK6-fU-Eca" customClass="UserRecipeDetailsViewController" customModule="IOS_RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -530,7 +530,7 @@
                             <constraint firstItem="Y10-mg-u1b" firstAttribute="leading" secondItem="5ix-EX-zcB" secondAttribute="leading" id="gDg-ys-wtn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Recipe Details" id="RV5-Gu-yGQ"/>
+                    <navigationItem key="navigationItem" title="My Recipe Details" id="RV5-Gu-yGQ"/>
                     <connections>
                         <outlet property="areaLabel" destination="9OX-zj-kmw" id="Msc-B1-Cuz"/>
                         <outlet property="categoryLabel" destination="lLR-fl-gWU" id="xEz-7n-cIz"/>
