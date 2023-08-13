@@ -18,7 +18,7 @@ class RecipeTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        // self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         
         Task {
@@ -57,11 +57,11 @@ class RecipeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeTableViewCell
-
+        
         let recipe = recipeList[indexPath.row]
         cell.mealLabel.text = recipe.strMeal
         cell.categoryLabel.text = recipe.strCategory
-
+        
         if let imageURL = URL(string: recipe.strMealThumb) {
             DispatchQueue.global().async {
                 if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {
@@ -79,10 +79,10 @@ class RecipeTableViewController: UITableViewController {
             // Set a placeholder image if the image URL is not valid
             cell.recipeImage.image = UIImage(named: "placeholderImage")
         }
-
+        
         return cell
     }
-
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Fetch the recipe for the cell at the given indexPath
@@ -127,17 +127,17 @@ class RecipeTableViewController: UITableViewController {
      */
     
     
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-         //recipeList.delete(at: indexPath)
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            //recipeList.delete(at: indexPath)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     
     /*
      // Override to support rearranging the table view.

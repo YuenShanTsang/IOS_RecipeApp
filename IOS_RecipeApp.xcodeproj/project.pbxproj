@@ -11,10 +11,13 @@
 		4B94A6342A6C648B006D26B6 /* RecipeAPI_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B94A6332A6C648B006D26B6 /* RecipeAPI_Helper.swift */; };
 		4B94A6362A6C6B90006D26B6 /* RecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B94A6352A6C6B90006D26B6 /* RecipeList.swift */; };
 		4B94A6382A6CC583006D26B6 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B94A6372A6CC583006D26B6 /* RecipeDetailsViewController.swift */; };
+		4BB015DE2A884D7000E64532 /* RecipeDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB015DD2A884D7000E64532 /* RecipeDataHelper.swift */; };
+		4BB015E02A886FE600E64532 /* UserRecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB015DF2A886FE600E64532 /* UserRecipeTableViewController.swift */; };
+		4BB015E22A88725700E64532 /* UserRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB015E12A88725700E64532 /* UserRecipeTableViewCell.swift */; };
 		4BB7217E2A639DAB004FBAA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB7217D2A639DAB004FBAA8 /* AppDelegate.swift */; };
 		4BB721802A639DAB004FBAA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB7217F2A639DAB004FBAA8 /* SceneDelegate.swift */; };
 		4BB721852A639DAB004FBAA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB721832A639DAB004FBAA8 /* Main.storyboard */; };
-		4BB721882A639DAB004FBAA8 /* IOS_RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BB721862A639DAB004FBAA8 /* IOS_RecipeApp.xcdatamodeld */; };
+		4BB721882A639DAB004FBAA8 /* RecipeDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BB721862A639DAB004FBAA8 /* RecipeDataModel.xcdatamodeld */; };
 		4BB7218A2A639DAC004FBAA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB721892A639DAC004FBAA8 /* Assets.xcassets */; };
 		4BB7218D2A639DAC004FBAA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB7218B2A639DAC004FBAA8 /* LaunchScreen.storyboard */; };
 		4BD06A2C2A6F839C00E80754 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD06A2B2A6F839C00E80754 /* RecipeTableViewCell.swift */; };
@@ -26,6 +29,9 @@
 		4B94A6332A6C648B006D26B6 /* RecipeAPI_Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAPI_Helper.swift; sourceTree = "<group>"; };
 		4B94A6352A6C6B90006D26B6 /* RecipeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeList.swift; sourceTree = "<group>"; };
 		4B94A6372A6CC583006D26B6 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		4BB015DD2A884D7000E64532 /* RecipeDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataHelper.swift; sourceTree = "<group>"; };
+		4BB015DF2A886FE600E64532 /* UserRecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecipeTableViewController.swift; sourceTree = "<group>"; };
+		4BB015E12A88725700E64532 /* UserRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		4BB7217A2A639DAB004FBAA8 /* IOS_RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB7217D2A639DAB004FBAA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BB7217F2A639DAB004FBAA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,16 +77,19 @@
 				4BB7217D2A639DAB004FBAA8 /* AppDelegate.swift */,
 				4BB7217F2A639DAB004FBAA8 /* SceneDelegate.swift */,
 				4B94A6312A6C6414006D26B6 /* RecipeTableViewController.swift */,
+				4BB015DF2A886FE600E64532 /* UserRecipeTableViewController.swift */,
 				4B94A6372A6CC583006D26B6 /* RecipeDetailsViewController.swift */,
 				4BFE55362A7F0499002E5730 /* CreateRecipeViewController.swift */,
+				4BB015E12A88725700E64532 /* UserRecipeTableViewCell.swift */,
 				4BD06A2B2A6F839C00E80754 /* RecipeTableViewCell.swift */,
+				4BB015DD2A884D7000E64532 /* RecipeDataHelper.swift */,
 				4B94A6332A6C648B006D26B6 /* RecipeAPI_Helper.swift */,
 				4B94A6352A6C6B90006D26B6 /* RecipeList.swift */,
 				4BB721832A639DAB004FBAA8 /* Main.storyboard */,
 				4BB721892A639DAC004FBAA8 /* Assets.xcassets */,
 				4BB7218B2A639DAC004FBAA8 /* LaunchScreen.storyboard */,
 				4BB7218E2A639DAC004FBAA8 /* Info.plist */,
-				4BB721862A639DAB004FBAA8 /* IOS_RecipeApp.xcdatamodeld */,
+				4BB721862A639DAB004FBAA8 /* RecipeDataModel.xcdatamodeld */,
 			);
 			path = IOS_RecipeApp;
 			sourceTree = "<group>";
@@ -156,7 +165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB721882A639DAB004FBAA8 /* IOS_RecipeApp.xcdatamodeld in Sources */,
+				4BB015E02A886FE600E64532 /* UserRecipeTableViewController.swift in Sources */,
+				4BB721882A639DAB004FBAA8 /* RecipeDataModel.xcdatamodeld in Sources */,
 				4B94A6362A6C6B90006D26B6 /* RecipeList.swift in Sources */,
 				4B94A6322A6C6414006D26B6 /* RecipeTableViewController.swift in Sources */,
 				4B94A6382A6CC583006D26B6 /* RecipeDetailsViewController.swift in Sources */,
@@ -165,6 +175,8 @@
 				4BB721802A639DAB004FBAA8 /* SceneDelegate.swift in Sources */,
 				4BD06A2C2A6F839C00E80754 /* RecipeTableViewCell.swift in Sources */,
 				4BFE55372A7F0499002E5730 /* CreateRecipeViewController.swift in Sources */,
+				4BB015E22A88725700E64532 /* UserRecipeTableViewCell.swift in Sources */,
+				4BB015DE2A884D7000E64532 /* RecipeDataHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,13 +400,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4BB721862A639DAB004FBAA8 /* IOS_RecipeApp.xcdatamodeld */ = {
+		4BB721862A639DAB004FBAA8 /* RecipeDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				4BB721872A639DAB004FBAA8 /* IOS_RecipeApp.xcdatamodel */,
 			);
 			currentVersion = 4BB721872A639DAB004FBAA8 /* IOS_RecipeApp.xcdatamodel */;
-			path = IOS_RecipeApp.xcdatamodeld;
+			path = RecipeDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

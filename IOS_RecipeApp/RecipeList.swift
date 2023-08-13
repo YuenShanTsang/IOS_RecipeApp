@@ -75,3 +75,10 @@ struct Recipe: Codable {
     }
 }
 
+struct UserRecipe {
+    let userMeal: String
+    let userCategory: String
+    let userArea: String
+    let userIngredients: String
+    let userInstructions: String
+}
