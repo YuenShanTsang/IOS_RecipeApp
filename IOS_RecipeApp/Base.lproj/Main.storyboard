@@ -143,17 +143,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Recipe" id="shb-je-7uc"/>
                     <connections>
-                        <outlet property="areaTextField" destination="juc-ca-Xsg" id="6RD-2l-chW"/>
-                        <outlet property="categoryTextField" destination="ZSM-p3-QHk" id="QZM-Cm-kRK"/>
-                        <outlet property="image" destination="TUh-h8-JGY" id="fu4-hD-Qz3"/>
-                        <outlet property="ingredientsTextField" destination="d3n-MG-rRs" id="trz-GK-U1i"/>
-                        <outlet property="instructionsTextView" destination="8kA-Qy-A5Y" id="8tv-SZ-afr"/>
-                        <outlet property="mealTextField" destination="2aZ-lf-JHd" id="q2L-iA-uae"/>
+                        <outlet property="areaTextField" destination="juc-ca-Xsg" id="6Go-ub-5bx"/>
+                        <outlet property="categoryTextField" destination="ZSM-p3-QHk" id="08L-HE-0Kg"/>
+                        <outlet property="image" destination="TUh-h8-JGY" id="LTS-Gy-OPq"/>
+                        <outlet property="ingredientsTextField" destination="d3n-MG-rRs" id="S7h-V2-oDc"/>
+                        <outlet property="instructionsTextView" destination="8kA-Qy-A5Y" id="m1h-1J-Elz"/>
+                        <outlet property="mealTextField" destination="2aZ-lf-JHd" id="PMj-H8-Bf2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrm-sT-eKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2600.7633587786258" y="-704.22535211267609"/>
+            <point key="canvasLocation" x="3395" y="-1068"/>
         </scene>
         <!--My Recipe-->
         <scene sceneID="2tR-Rl-d5Q">
@@ -206,6 +206,7 @@
                                     <outlet property="userCategoryLabel" destination="sl0-OH-596" id="WfR-EE-KaS"/>
                                     <outlet property="userMealLabel" destination="Agc-9r-QSJ" id="Ztq-f9-GBz"/>
                                     <outlet property="userRecipeImage" destination="t7k-kK-Xr5" id="dzM-g9-Hm7"/>
+                                    <segue destination="cK6-fU-Eca" kind="show" identifier="showUserRecipeDetails" id="yoE-FK-5a2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -307,7 +308,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGL-e9-wRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1603.8167938931297" y="76.760563380281695"/>
+            <point key="canvasLocation" x="1604" y="237"/>
         </scene>
         <!--Recipe Details-->
         <scene sceneID="N3S-WT-yM5">
@@ -406,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofX-gQ-beg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2572" y="77"/>
+            <point key="canvasLocation" x="2613" y="237"/>
         </scene>
         <!--Recipe-->
         <scene sceneID="Uc1-Ao-4E4">
@@ -423,7 +424,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEH-oN-EgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576" y="78"/>
+            <point key="canvasLocation" x="578" y="238"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qp6-Tn-uH0">
@@ -443,6 +444,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fan-zn-XEX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-624" y="-309"/>
+        </scene>
+        <!--Recipe Details-->
+        <scene sceneID="FWJ-4B-rwZ">
+            <objects>
+                <viewController id="cK6-fU-Eca" customClass="UserRecipeDetailsViewController" customModule="IOS_RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YYa-yw-fY0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y10-mg-u1b">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ovH-X3-Otv">
+                                        <rect key="frame" x="21.666666666666657" y="0.0" width="350" height="474.33333333333331"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQB-Lm-h1w">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="256"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="350" id="79Z-2q-H9c"/>
+                                                    <constraint firstAttribute="height" constant="256" id="V4y-37-MSe"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9r-NU-QFv">
+                                                <rect key="frame" x="0.0" y="266" width="350" height="26.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLR-fl-gWU">
+                                                <rect key="frame" x="0.0" y="302.33333333333331" width="350" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OX-zj-kmw">
+                                                <rect key="frame" x="0.0" y="332.66666666666669" width="350" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BD-re-XpZ">
+                                                <rect key="frame" x="0.0" y="363" width="350" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XG1-a6-tcr">
+                                                <rect key="frame" x="0.0" y="393.33333333333331" width="350" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU5-fS-vMM">
+                                                <rect key="frame" x="0.0" y="423.66666666666663" width="350" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnT-x4-5a1">
+                                                <rect key="frame" x="0.0" y="454" width="350" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ovH-X3-Otv" firstAttribute="leading" secondItem="Y10-mg-u1b" secondAttribute="leading" constant="21.666666666666657" id="BPv-xz-A7C"/>
+                                    <constraint firstAttribute="bottom" secondItem="ovH-X3-Otv" secondAttribute="bottom" id="G4e-Hp-Wm7"/>
+                                    <constraint firstAttribute="trailing" secondItem="ovH-X3-Otv" secondAttribute="trailing" constant="21.333333333333371" id="gsN-Yv-jBc"/>
+                                    <constraint firstItem="ovH-X3-Otv" firstAttribute="top" secondItem="Y10-mg-u1b" secondAttribute="top" id="yTo-ZZ-puB"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="5y7-YS-Ldl"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="5md-Pd-XVl"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5ix-EX-zcB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y10-mg-u1b" firstAttribute="trailing" secondItem="5ix-EX-zcB" secondAttribute="trailing" id="Hyh-fU-mDu"/>
+                            <constraint firstItem="Y10-mg-u1b" firstAttribute="top" secondItem="5ix-EX-zcB" secondAttribute="top" id="YaM-YR-VKs"/>
+                            <constraint firstAttribute="bottom" secondItem="Y10-mg-u1b" secondAttribute="bottom" id="bfU-5w-fFg"/>
+                            <constraint firstItem="Y10-mg-u1b" firstAttribute="leading" secondItem="5ix-EX-zcB" secondAttribute="leading" id="gDg-ys-wtn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recipe Details" id="RV5-Gu-yGQ"/>
+                    <connections>
+                        <outlet property="areaLabel" destination="9OX-zj-kmw" id="Msc-B1-Cuz"/>
+                        <outlet property="categoryLabel" destination="lLR-fl-gWU" id="xEz-7n-cIz"/>
+                        <outlet property="imageView" destination="tQB-Lm-h1w" id="ebJ-uV-wBD"/>
+                        <outlet property="ingredientLabel" destination="XG1-a6-tcr" id="2ko-rZ-Bhh"/>
+                        <outlet property="instructionsLabel" destination="TnT-x4-5a1" id="0RC-fc-EbS"/>
+                        <outlet property="mealLabel" destination="h9r-NU-QFv" id="BmS-xL-5wC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axk-oD-0xb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3395" y="-343"/>
         </scene>
     </scenes>
     <resources>
