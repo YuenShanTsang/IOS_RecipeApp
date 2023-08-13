@@ -49,6 +49,10 @@ class UserRecipeTableViewController: UITableViewController {
         cell.userMealLabel.text = userRecipe.userMeal
         cell.userCategoryLabel.text = userRecipe.userCategory
         
+        if let imageData = userRecipe.userRecipeImage, let image = UIImage(data: imageData) {
+            cell.userRecipeImage.image = image
+        }
+        
         return cell
     }
     
@@ -68,9 +72,8 @@ class UserRecipeTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    
     
     /*
      // Override to support rearranging the table view.

@@ -81,4 +81,5 @@ struct UserRecipe {
     let userArea: String
     let userIngredients: String
     let userInstructions: String
+    let userRecipeImage: Data?
 }

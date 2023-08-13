@@ -6,7 +6,6 @@
         <attribute name="userIngredients" optional="YES" attributeType="String"/>
         <attribute name="userInstructions" optional="YES" attributeType="String"/>
         <attribute name="userMeal" optional="YES" attributeType="String"/>
-        <attribute name="userRecipeId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="userRecipeImage" optional="YES" attributeType="Binary"/>
     </entity>
 </model>
